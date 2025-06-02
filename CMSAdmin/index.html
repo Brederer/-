@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+  <head lang="ru">
+    <title>CMSAdminPanel</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="datepicker/css/datepicker.material.css" />
+    <script type="module" src="index.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
+    <script src="datepicker/datepicker.js"></script>
+  </head>
+  <body>
+    <!------------------------------------------->
+    <!------------------------------------------->
+    <!----------------Шапка сайта---------------->
+    <!------------------------------------------->
+    <!------------------------------------------->
+    <header>
+      <div class="header_content">
+        <div class="header_block">
+          <div class="header_block-p1">CMS<span>Admin</span></div>
+          <div class="header_block-p2">Документ "Доверенность"</div>
+        </div>
+        <div class="header_time">00:00:00</div>
+      </div>
+    </header>
+    <main>
+      <!-------------------------------------------------->
+      <!-------------------------------------------------->
+      <!----------------Боковое меню сайта---------------->
+      <!-------------------------------------------------->
+      <!-------------------------------------------------->
+      <div class="main_menu">
+        <div class="main_burger">
+          <div class="main_burger-content"></div>
+          <span></span>
+        </div>
+        <div class="main_menu_block">
+          <div class="main_title">Главное меню</div>
+          <div class="main_menu-documents"><span>Документы</span></div>
+          <div class="main_menu-documents_block" hidden>
+            <div class="main_menu-documents doverennost">
+              <span>Доверенность</span>
+            </div>
+            <div class="main_menu-documents vedomost" hidden>
+              <span>Ведомость на выдачу продукции</span>
+            </div>
+            <div class="main_menu-documents prikaz">
+              <span>Приказ о переводе</span>
+            </div>
+            <!-- Added this line -->
+            <div class="main_menu-documents items" hidden><span>-</span></div>
+          </div>
+          <div class="main_menu-guides"><span>Справочники</span></div>
+          <div class="main_menu-guides_block" hidden>
+            <div class="main_menu-guides individuals">
+              <span>Физические лица</span>
+            </div>
+            <div class="main_menu-guides organizations">
+              <span>Организации</span>
+            </div>
+            <div class="main_menu-guides items"><span>Товары</span></div>
+          </div>
+        </div>
+      </div>
+      <!--------------------------------------------------->
+      <!--------------------------------------------------->
+      <!----------------Основной блок сайта---------------->
+      <!--------------------------------------------------->
+      <!--------------------------------------------------->
+      <div class="main_content_block">
+        <!----------------Меню: секция "Документы"---------------->
+        <div class="section documents">
+          <div class="section_caption">Журнал доверенностей</div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Номер документа</div>
+              <div>
+                <div>Действителен</div>
+                <div>
+                  <div>c</div>
+                  <div>по</div>
+                </div>
+              </div>
+              <div>⚙</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <div class="section vedomost">
+          <div class="section_caption">
+            Журнал ведомостей на выдачу продукции
+          </div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Номер ведомости</div>
+              <div>Дата</div>
+              <div>⚙</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <div class="section prikaz">
+          <div class="section_caption">
+            Журнал приказов о переводе работников
+          </div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Номер приказа</div>
+              <div>Дата</div>
+              <div>Организация</div>
+              <div>Действия</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <!----------------Меню: секция "Физические лица"---------------->
+        <div class="section individuals">
+          <div class="section_caption">Справочник "Физические лица"</div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Фамилия</div>
+              <div>Имя</div>
+              <div>Отчество</div>
+              <div>Серия паспорта</div>
+              <div>Номер паспорта</div>
+              <div>Кем выдан</div>
+              <div>⚙</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <!----------------Меню: секция "Организации"---------------->
+        <div class="section organizations">
+          <div class="section_caption">Справочник "Организации"</div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Наименование организации</div>
+              <div>Адрес</div>
+              <div>⚙</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <!----------------Меню: секция "Товары"---------------->
+        <div class="section items">
+          <div class="section_caption">Справочник "Товары"</div>
+          <div class="section_table">
+            <div class="table_row th">
+              <div>№</div>
+              <div>Наименование материальной ценности</div>
+              <div>⚙</div>
+            </div>
+          </div>
+          <div class="section_table_add">Добавить запись</div>
+        </div>
+
+        <!----------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------ФОРМЫ------------------------------------------------>
+        <!----------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------->
+
+        <!----------------Форма добавление/обновления в секцию "Документы"---------------->
+        <div id="frame_doc" src="" frameborder="0">
+          <div class="frame_doc_cont">
+            <div class="frame_title">
+              Форма добавление/обновления документов
+            </div>
+
+            <div class="enter_data_field">
+              <div style="color: rgb(0, 182, 189); margin-top: 10px">
+                Ленточные данные:
+              </div>
+              <select
+                id="doc_home_org"
+                type="text"
+                placeholder="Наименование организации"
+              ></select>
+              <input
+                id="doc_num_dover"
+                type="text"
+                placeholder="Номер доверенности"
+              />
+              <div>Действует с:</div>
+              <div class="doc_issue_with_block">
+                <input id="doc_issue_with_day" type="text" placeholder="День" />
+                <input
+                  id="doc_issue_with_month"
+                  type="text"
+                  placeholder="Месяц"
+                />
+                <input id="doc_issue_with_year" type="text" placeholder="Год" />
+              </div>
+              <div>Действует по:</div>
+              <div class="doc_issue_for_block">
+                <input id="doc_issue_for_day" type="text" placeholder="День" />
+                <input
+                  id="doc_issue_for_month"
+                  type="text"
+                  placeholder="Месяц"
+                />
+                <input id="doc_issue_for_year" type="text" placeholder="Год" />
+              </div>
+              <select
+                id="doc_consumer_org"
+                type="text"
+                placeholder="Наименование потребителя"
+              ></select>
+              <select
+                id="doc_payer_org"
+                type="text"
+                placeholder="Наименование плательщика"
+              ></select>
+              <div>Доверенность выдана:</div>
+              <div class="doc_issue_from_block">
+                <input
+                  id="doc_issue_from_position"
+                  type="text"
+                  placeholder="Должность"
+                />
+                <select
+                  id="doc_issue_from_FIO"
+                  type="text"
+                  placeholder="ФИО"
+                ></select>
+              </div>
+              <div class="doc_issue_from_block">
+                <input
+                  id="doc_issue_from_serial"
+                  type="text"
+                  placeholder="Серия паспорта"
+                />
+                <input
+                  id="doc_issue_from_number"
+                  type="text"
+                  placeholder="Номер паспорта"
+                />
+                <input
+                  id="doc_issue_from_getter"
+                  type="text"
+                  placeholder="Кем выдан"
+                />
+              </div>
+              <div>На получение от:</div>
+              <div>
+                <select
+                  id="doc_issue_get_from_org"
+                  type="text"
+                  placeholder="Наименование поставщика"
+                ></select>
+                <input
+                  id="doc_issue_get_num_doc"
+                  type="text"
+                  placeholder="мат. ценностей по"
+                />
+              </div>
+
+              <div style="color: rgb(0, 182, 189); margin-top: 10px">
+                Табличные данные:
+              </div>
+              <table>
+                <tr>
+                  <th>№</th>
+                  <th>Материальная ценность</th>
+                  <th>Количество</th>
+                </tr>
+                <tr id="doc_table_row">
+                  <td><input type="text" /></td>
+                  <td><select id="doc_table_itemsSelect"></select></td>
+                  <td><input type="text" /></td>
+                </tr>
+              </table>
+
+              <div>
+                <button id="doc_button_add">+</button>
+                <button id="doc_button_delete">-</button>
+              </div>
+            </div>
+
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div id="frame_doc_exit" class="frame_doc_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <!----------------Форма добавление/обновления в секцию "Ведомость на выдачу продукции"---------------->
+        <div id="frame_ved" src="" frameborder="0">
+          <div class="frame_ved_cont">
+            <div class="frame_title">
+              Форма добавление/обновления ведомостей
+            </div>
+            <div class="ved_enter_data_field">
+              <input
+                id="ved_num_ved"
+                type="text"
+                placeholder="Номер ведомости"
+              />
+              <input id="ved_date" type="text" placeholder="Дата" />
+              <select
+                id="ved_home_org"
+                type="text"
+                placeholder="Учреждение"
+              ></select>
+              <select
+                id="ved_issuer"
+                type="text"
+                placeholder="Материально ответственное лицо (отправитель)"
+              ></select>
+              <select
+                id="ved_receiver"
+                type="text"
+                placeholder="Материально ответственное лицо (получатель)"
+              ></select>
+
+              <div style="color: rgb(0, 182, 189); margin-top: 10px">
+                Табличные данные:
+              </div>
+              <table>
+                <tr>
+                  <th>№</th>
+                  <th>Материальные ценности</th>
+                  <th>Количество</th>
+                  <th>Единица измерения</th>
+                  <th>Цена</th>
+                </tr>
+                <tr id="ved_table_row">
+                  <td><input type="text" /></td>
+                  <td><select id="ved_table_itemsSelect"></select></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
+                </tr>
+              </table>
+
+              <div>
+                <button id="ved_button_add">+</button>
+                <button id="ved_button_delete">-</button>
+              </div>
+            </div>
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div id="frame_ved_exit" class="frame_ved_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <div id="frame_prikaz" src="" frameborder="0">
+          <div class="frame_prikaz_cont">
+            <div class="frame_title">Форма добавление/обновления приказов</div>
+            <div class="prikaz_enter_data_field">
+              <select
+                id="prikaz_organization"
+                type="text"
+                placeholder="Организация"
+              ></select>
+              <input
+                id="prikaz_order_number"
+                type="text"
+                placeholder="Номер приказа"
+              />
+
+              <div>Дата приказа:</div>
+              <div class="prikaz_issue_date_block">
+                <input id="prikaz_issue_day" type="text" placeholder="День" />
+                <input
+                  id="prikaz_issue_month"
+                  type="text"
+                  placeholder="Месяц"
+                />
+                <input id="prikaz_issue_year" type="text" placeholder="Год" />
+              </div>
+
+              <div>Дата утверждения:</div>
+              <div class="prikaz_approval_date_block">
+                <input
+                  id="prikaz_approval_day"
+                  type="text"
+                  placeholder="День"
+                />
+                <input
+                  id="prikaz_approval_month"
+                  type="text"
+                  placeholder="Месяц"
+                />
+                <input
+                  id="prikaz_approval_year"
+                  type="text"
+                  placeholder="Год"
+                />
+              </div>
+
+              <div>Дата внесения записи:</div>
+              <div class="prikaz_entry_date_block">
+                <input id="prikaz_entry_day" type="text" placeholder="День" />
+                <input
+                  id="prikaz_entry_month"
+                  type="text"
+                  placeholder="Месяц"
+                />
+                <input id="prikaz_entry_year" type="text" placeholder="Год" />
+              </div>
+
+              <input
+                id="prikaz_department"
+                type="text"
+                placeholder="Подразделение"
+              />
+              <input
+                id="prikaz_responsible_person"
+                type="text"
+                placeholder="Ответственный"
+              />
+              <input
+                id="prikaz_transfer_reason"
+                type="text"
+                placeholder="Причина перевода"
+              />
+              <input
+                id="prikaz_comment"
+                type="text"
+                placeholder="Комментарий"
+              />
+
+              <div>Перевод из:</div>
+              <select
+                id="prikaz_from_org"
+                type="text"
+                placeholder="Отдел (откуда)"
+              ></select>
+              <div>Перевод в:</div>
+              <select
+                id="prikaz_to_org"
+                type="text"
+                placeholder="Отдел (куда)"
+              ></select>
+
+              <div style="color: rgb(0, 182, 189); margin-top: 10px">
+                Сотрудники:
+              </div>
+              <table>
+                <tr>
+                  <th>№</th>
+                  <th>Должность</th>
+                  <th>ФИО сотрудника</th>
+                  <th>Пред. должность</th>
+                  <th>Тип перевода</th>
+                </tr>
+                <tr id="prikaz_table_row">
+                  <td><input type="text" readonly /></td>
+                  <td><select class="employee-fio"></select></td>
+                  <td>
+                    <select class="employee-position">
+                      <option value="">Должность</option>
+                      <!-- ... -->
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      class="employee-previous-position"
+                      type="text"
+                      placeholder="Пред. должность"
+                    />
+                  </td>
+                  <td>
+                    <select class="employee-transfer-type">
+                      <option value="">Тип перевода</option>
+                      <option value="Постоянный">Постоянный</option>
+                      <option value="Временный">Временный</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+
+              <div>
+                <button id="prikaz_button_add">+</button>
+                <button id="prikaz_button_delete">-</button>
+              </div>
+            </div>
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div id="frame_prikaz_exit" class="frame_prikaz_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <!----------------Форма добавление/обновления в секцию "Физические лица"---------------->
+        <div id="frame_indiv" src="" frameborder="0">
+          <div class="frame_indiv_cont">
+            <div class="frame_title">Форма добавление/обновления физ.лиц</div>
+            <div class="enter_data_field">
+              <input id="frame_indiv_surn" type="text" placeholder="Фамилия" />
+              <input id="frame_indiv_name" type="text" placeholder="Имя" />
+              <input id="frame_indiv_patr" type="text" placeholder="Отчество" />
+              <input
+                id="frame_indiv_serial"
+                type="text"
+                placeholder="Серия паспорта"
+              />
+              <input
+                id="frame_indiv_num"
+                type="text"
+                placeholder="Номер паспорта"
+              />
+              <input
+                id="frame_indiv_issue"
+                type="text"
+                placeholder="Кем выдан"
+              />
+            </div>
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div class="frame_indiv_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <!----------------Форма добавление/обновления в секцию "Организации"---------------->
+        <div id="frame_org" src="" frameborder="0">
+          <div class="frame_org_cont">
+            <div class="frame_title">
+              Форма добавление/обновления организаций
+            </div>
+            <div class="enter_data_field">
+              <input
+                id="frame_org_name"
+                type="text"
+                placeholder="Наименование организации"
+              />
+              <input id="frame_org_address" type="text" placeholder="Адрес" />
+            </div>
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div class="frame_org_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <!----------------Форма добавление/обновления товаров в секцию "Товары"---------------->
+        <div id="frame_items" src="" frameborder="0">
+          <div class="frame_items_cont">
+            <div class="frame_title">Форма добавление/обновления товаров</div>
+            <div class="enter_data_field">
+              <input
+                id="frame_items_name"
+                type="text"
+                placeholder="Наименование материальной ценности"
+              />
+            </div>
+            <div class="confirm_but">Добавление/Обновление</div>
+          </div>
+          <div class="frame_items_exit">
+            <span></span>
+          </div>
+        </div>
+
+        <!----------------Форма печати---------------->
+        <div id="frame_print" src="" frameborder="0">
+          <div class="block_hl">
+            <p class="header_label">
+              Типовая межотраслевая форма № M-2a<br />Утверждена постановлением
+              Госкомстата России<br />от 30.10.97 №71а
+            </p>
+          </div>
+          <!--Ленточная часть-->
+          <div class="level1">
+            <div class="home_org">
+              <p>Организация</p>
+              <input id="home_org" type="text" />
+            </div>
+            <div class="codes">
+              <div class="grid">
+                <div class="cell1">Форма</div>
+                <div class="cell2">Коды</div>
+                <div class="cell3">по ОКУД</div>
+                <div class="cell4">0315002</div>
+                <div class="cell5">по ОКПО</div>
+                <div id="codes_cell6" class="cell6"></div>
+              </div>
+            </div>
+          </div>
+          <div class="title_num">
+            Доверенность № <input id="title_num_input" type="text" />
+          </div>
+
+          <!-- Даты -->
+          <div class="issue_with">
+            <p>Дата выдачи</p>
+            <div class="data_issue">
+              "<input id="issue_with_day" class="day" type="text" />"
+              <input id="issue_with_month" type="text" class="month" />
+              <input id="issue_with_year" type="text" class="year" /> г.
+            </div>
+          </div>
+
+          <div class="issue_for">
+            <p>Доверенность действительна по</p>
+            <div class="data_issue">
+              "<input id="issue_for_day" class="day" type="text" />"
+              <input id="issue_for_month" type="text" class="month" />
+              <input id="issue_for_year" type="text" class="year" /> г.
+            </div>
+          </div>
+
+          <div class="consumer_org">
+            <input id="consumer_org_input" type="text" />
+            <p>(наименование потребителя и его адрес)</p>
+          </div>
+
+          <div class="payer_org">
+            <input id="payer_org_input" type="text" />
+            <p>(наименование плательщика и его адрес)</p>
+          </div>
+
+          <div class="individuals_person">
+            <p class="position">Доверенность выдана</p>
+            <div class="position_inputs_block">
+              <div class="position_input">
+                <input id="position_input" type="text" />
+                <p>(должность)</p>
+              </div>
+              <div class="fio_input">
+                <input id="fio_input" type="text" />
+                <p>(фамилия, имя, отчество)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Паспорт -->
+          <div class="passport">
+            <p>Паспорт:</p>
+            <div class="data">
+              <div class="serial">
+                <p>серия</p>
+                <input id="passport_series" type="text" />
+                <!-- Добавлен id -->
+              </div>
+              <div class="number">
+                <p>№</p>
+                <input id="passport_number" type="text" />
+                <!-- Добавлен id -->
+              </div>
+            </div>
+          </div>
+
+          <div class="issue_organ">
+            <p>Кем выдан</p>
+            <input id="issue_organ_input" type="text" />
+          </div>
+
+          <!-- <div class="issue_with2">
+        <p>Дата выдачи</p>
+        <div class="data_issue">
+            "<input id="issue_with2_day" class="day" type="text">" 
+            <input id="issue_with2_month" type="text" class="month">
+            <input id="issue_with2_year" type="text" class="year"> г.
+        </div>
+    </div> -->
+
+          <div class="get_from">
+            <p>На получение от</p>
+            <div class="input_block">
+              <input id="get_from_input" type="text" />
+              <p>(наименование поставщика)</p>
+            </div>
+          </div>
+
+          <!-- <div class="material_doc">
+        <p>материальных ценностей по</p>
+        <div class="input_block">
+            <input id="material_doc_input" type="text">
+            <p>(номер и дата документа)</p>
+        </div>
+    </div> -->
+
+          <!-- Табличная часть -->
+          <table id="frame_print_table">
+            <tr>
+              <th>№</th>
+              <th>Материальные ценности</th>
+              <th>Количество</th>
+            </tr>
+            <!-- Строки будут добавляться через JS -->
+          </table>
+
+          <!-- Подвал документа -->
+          <div class="footer"></div>
+        </div>
+
+        <!------------------------------------------Конец раздела форм-------------------------------------------------->
+      </div>
+    </main>
+    <!-- В конце body, перед закрывающим тегом </body> -->
+    <script type="module" src="js/prikaz.js"></script>
+    <script type="module" src="js/vedomost.js"></script>
+    <script type="module" src="js/documents.js"></script>
+    <script type="module" src="js/individuals.js"></script>
+    <script type="module" src="js/organizations.js"></script>
+    <script type="module" src="js/items.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
