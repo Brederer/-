@@ -1,0 +1,1930 @@
+/* Author: Nikita Grigorev */
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*checked*/
+body{
+    padding: 0;
+    margin: 0;
+    visibility: visible;
+    transition: 0s;
+}
+.preload * {
+    transition: none !important;
+}
+/*--------------Шапка сайта----------------*/
+/*checked*/
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(28, 28, 28);
+}
+/*checked*/
+.header_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+/*checked*/
+.header_time{
+    color: rgb(240,240,240);
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+/*checked*/
+.header_block-p1, .header_block-p2{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+/*checked*/
+.header_block-p1 {
+    font-size: 35px;
+    line-height: 35px;
+    color: rgb(240, 240, 240);
+}
+/*checked*/
+.header_block-p2{
+    font-size: 15px;
+    color: grey;
+}
+/*checked*/
+.header_block-p1 span{
+    color: rgb(230, 0, 0);
+}
+/*--------------Шапка сайта----------------*/
+/*----------------Боковое меню сайта----------------*/
+/*checked*/
+main{
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 2000px;
+    background-color: rgb(10, 10, 10);
+}
+/*checked*/
+.main_menu{
+    position: absolute;
+    left: -16%;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(28, 28, 28);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    transition: 1s;
+    z-index: 2;
+}
+/*----------------Боковое меню сайта----------------*/
+/*-----------Меню бургер-----------*/
+/*checked*/
+.main_burger{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 35px;
+    height: 24px;
+    right: 5%;
+    top: 1.8%;
+    cursor: pointer;
+    z-index: 1;
+}
+/*checked*/
+.main_burger-content{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(240, 240, 240);
+    transition: 1s;
+}
+/*checked*/
+.main_burger.active .main_burger-content{
+    opacity: 0;
+}
+/*checked*/
+.main_burger span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(240, 240, 240);
+    transition: 1s;
+}
+/*checked*/
+.main_burger span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(240, 240, 240);
+    transition: 1s;
+}
+/*checked*/
+.main_burger.active span::before{
+    transform: rotate(45deg);
+    transform-origin: center;
+    top: 11px;
+}
+/*checked*/
+.main_burger.active span::after{
+    transform: rotate(-45deg);
+    transform-origin: center;
+    bottom: 11px;
+}
+/*-----------Меню бургер-----------*/
+/*-------Боковое меню сайта: контент-------*/
+/*checked*/
+.main_menu_block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    opacity: 0;
+    transition: 1s;
+    z-index: 1;
+}
+/*checked*/
+.main_title{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(240, 240, 240);
+    margin-bottom: 30px;
+}
+/*checked*/
+.main_menu-guides, .main_menu-docs{
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: grey;
+    background-color: rgb(18, 18, 18);
+    border-top: 1px solid rgba(240, 240, 240, 0.3);
+    border-bottom: 1px solid rgba(240,240, 240, 0.3);
+}
+/*checked*/
+.main_menu-guides.active, .main_menu-docs.active{
+    color: white;
+}
+/*checked*/
+.main_menu-guides:hover, .main_menu-docs:hover{
+    cursor: pointer;
+    color: rgb(240, 240, 240);
+}
+/*checked*/
+.main_menu-guides span, .main_menu-docs span{
+    position: relative;
+    margin-left: calc(50% - 75px);
+}
+/*checked*/
+.main_menu-guides span::before{
+    content: '';
+    position: absolute;
+    margin-left: -30px;
+    top: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    background: url(img/main_menu-guides.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-docs span::before{
+    content: '';
+    position: absolute;
+    margin-left: -30px;
+    top: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    background: url(img/main_menu-documents.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-guides_block, .main_menu-docs_block{
+    width: 100%;
+}
+/*checked*/
+.main_menu-guides_block .individuals, .main_menu-guides_block .organizations, .main_menu-guides_block .items,
+.main_menu-docs_block .main_menu-documents, .main_menu-docs_block .main_menu-employment_contact{
+    background-color: rgb(0, 18, 18);
+}
+/*checked*/
+.individuals.active, .organizations.active, .items.active, .main_menu-documents.active, .main_menu-employment_contact.active{
+    color: white;
+}
+/*checked*/
+.main_menu-guides.individuals span::before{
+    background: url(img/individuals.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-guides.organizations span::before{
+    background: url(img/organizations.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-guides.items span::before{
+    background: url(img/items.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-documents.main_menu-documents span::before{
+    background: url(img/main_menu-documents.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*checked*/
+.main_menu-documents.main_menu-employment_contact span::before{
+    background: url(img/main_menu-documents.png) no-repeat;
+    background-size: contain;
+    filter: brightness(0.5);
+}
+/*-------Боковое меню сайта: контент-------*/
+/*----------------Основной блок сайта----------------*/
+/*checked*/
+.main_content_block{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 96%;
+    height: 100%;
+    transition: 1s;
+}
+
+/*-----------Общие для секций свойства-----------*/
+/*checked*/
+.table_row_delete{
+    background: url('img/delete.png') no-repeat center;
+    width: 50%;
+    background-size: 55%;
+    cursor: pointer;
+    height: 48px;
+}
+/*checked*/
+.table_row_delete:active{
+    background-size: 65%;
+}
+
+/*checked*/
+.table_row_change{
+    background: url('img/change.png') no-repeat center;
+    width: 50%;
+    background-size: 55%;
+    cursor: pointer;
+    height: 48px;
+}
+/*checked*/
+.table_row_change:active{
+    background-size: 65%;
+}
+/*checked*/
+main .main_content_block .table_row_print{
+    background: url('img/print.png') no-repeat center;
+    width: 50%;
+    background-size: 55%;
+    cursor: pointer;
+    height: 48px;
+}
+/*checked*/
+main .main_content_block .table_row_print:active{
+    background-size: 65%;
+}
+
+/*checked*/
+.section_table_add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(240,240,240);
+    border-radius: 30px;
+    background-color: rgb(0,18,18);
+    cursor: pointer;
+}
+/*checked*/
+.section_table_add:hover{
+    background-color: rgb(0,28,28);
+}
+/*checked*/
+.section_table_add:active{
+    background-color: rgb(0,8,8);
+}
+/*checked*/
+.section.documents, .section.individuals, .section.organizations, .section.items, .section.employment_contact{
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    width: auto;
+    min-height: 150px;
+}
+/*checked*/
+.section.documents.active, .section.individuals.active, .section.organizations.active, .section.items.active, .section.employment_contact.active{
+    display:flex;
+}
+/*checked*/
+.section_caption{
+    width: auto;
+    font-size: 35px;
+    /*line-height: 35px;*/
+    font-weight: 900;
+    color: rgb(240,240,240);
+    margin-bottom: 50px;
+}
+/*checked*/
+.section_table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*checked*/
+.section_table>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(100,100,100);
+}
+/*checked*/
+.table_row.th{
+    border-top: none;
+    height: 50px;
+}
+/*checked*/
+.table_row>div{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    text-align: center;
+    height: 48px;
+    border-right: 2px solid rgb(100,100,100);
+    color: rgb(240,240,240);
+    font-size: 15px;
+    font-weight: 900;
+    background-color: rgb(28,28,28);
+}
+/*checked*/
+.table_row.th div{
+    background-color: rgb(0,18,18);
+    font-size: 20px;
+    font-weight: 900;
+}
+.table_row.th>div{
+    height: 50px;
+}
+/*checked*/
+.table_row>div:first-child{
+    width: 73px;
+    height: 48px;
+}
+/*checked*/
+.table_row>div:last-child{
+    border-right: none;
+    width: 115px;
+}
+/*checked*/
+.table_row.th>div:first-child{
+    border-top-left-radius: 20px;
+    height: 50px;
+}
+/*checked*/
+.table_row.th>div:last-child{
+    border-top-right-radius: 20px;
+}
+/*-----------Раздел Документы-----------*/
+/*checked*/
+.section.documents .table_row>div:nth-child(2){
+    width: 298px;
+}
+/*checked*/
+.section.documents .table_row.th>div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    width: 298px;
+}
+/*checked*/
+.section.documents .table_row.th>div:nth-child(3)>div:nth-child(1){
+    width: 298px;
+}
+/*checked*/
+.section.documents .table_row.th>div:nth-child(3)>div:nth-child(2){
+    height: 25px;
+}
+/*checked*/
+.section.documents .table_row.th>div:nth-child(3)>div:nth-child(2) div{
+    height: 25px;
+}
+/*checked*/
+.section.documents .table_row>div:nth-child(3){
+    width: 298px;
+}
+/*checked*/
+.section.documents .table_row>div:nth-child(4){
+    width: 148px;
+}
+/*checked*/
+.section.documents .table_row>div:last-child{
+    width: 115px;
+}
+/*checked*/
+.section.documents .table_row>div:nth-child(3)>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/*checked*/
+.section.documents .table_row.th>div:nth-child(3)>div:nth-child(1){
+    height: 23px;
+    border-bottom: 2px solid rgb(100,100,100);
+}
+.section.documents .table_row>div:nth-child(3)>div:nth-child(1){
+    height: 48px;
+    border-right: 2px solid rgb(100,100,100);
+}
+.section.documents .table_row>div:nth-child(3)>div:nth-child(2){
+    height: 48px;
+}
+/*checked*/
+.section.documents .table_row>div:nth-child(3)>div:nth-child(2)>div{
+    width: 100%;
+}
+/*checked*/
+.section.documents .table_row>div:nth-child(3)>div:nth-child(2)>div:nth-child(1){
+    border-right: 2px solid rgb(100,100,100);
+}
+/*-----------Раздел Документы-----------*/
+/*-----------Раздел Трудовые договоры-----------*/
+/*checked*/
+.section.employment_contact .table_row>div:nth-child(2){
+    width: 148px;
+}
+/*checked*/
+.section.employment_contact .table_row>div:nth-child(3){
+    width: 298px;
+}
+/*checked*/
+.section.employment_contact .table_row>div:nth-child(4){
+    width: 348px;
+}
+/*checked*/
+.section.employment_contact .table_row>div:nth-child(5){
+    width: 148px;
+}
+/*checked*/
+.section.employment_contact .table_row>div:nth-child(6){
+    width: 148px;
+}
+/*-----------Раздел Трудовые договоры-----------*/
+/*-----------Раздел Организации-----------*/
+/*checked*/
+.section.organizations .table_row>div:nth-child(2){
+    width: 298px;
+}
+/*checked*/
+.section.organizations .table_row>div:nth-child(3){
+    width: 298px;
+}
+/*-----------Раздел Организации-----------*/
+/*-----------Раздел Физ лица-----------*/
+/*checked*/
+.section.individuals .table_row>div:nth-child(2){
+    width: 198px;
+}
+/*checked*/
+.section.individuals .table_row>div:nth-child(3){
+    width: 198px;
+}
+/*checked*/
+.section.individuals .table_row>div:nth-child(4){
+    width: 198px;
+}
+/*checked*/
+.section.individuals .table_row>div:nth-child(5){
+    width: 98px;
+}
+.section.individuals .table_row>div:nth-child(6){
+    width: 98px;
+}
+/*checked*/
+.section.individuals .table_row>div:nth-child(7){
+    width: 398px;
+}
+/*-----------Раздел Физ лица-----------*/
+/*-----------Товары-----------*/
+/*-----------Товары-----------*/
+/*checked*/
+.section.items .table_row>div:nth-child(2){
+    width: 398px;
+}
+/*-----------Товары-----------*/
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*Формы*/
+    /*-----------Форма добавление/обновления в секцию "Документы"-----------*/
+#frame_doc{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 300px);
+    width: 600px;
+    padding-top:50px;
+    padding-bottom:50px;
+    height: auto;
+    background-color:rgb(0,28,28);
+    border-radius: 20px;
+    z-index: 2;
+}
+
+#frame_doc .frame_doc_exit{ /*Крестик*/
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 25px;
+    color: white;
+    top: 25px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#frame_doc .frame_doc_exit span::before{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:35px;
+    height:2px;
+    top:0;
+    transform-origin: left;
+    transform: rotate(45deg);
+    background-color:white;
+}
+
+#frame_doc .frame_doc_exit span::after{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:33px;
+    height:2px;
+    bottom:0;
+    transform-origin: left;
+    transform: rotate(-45deg);
+    background-color:white;
+}
+
+#frame_doc .frame_doc_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:90%;
+}
+
+#frame_doc .frame_doc_cont .frame_title{
+    font-size:30px;
+    font-weight: 600;
+    color:rgba(240,240,240,0.9);
+    text-align:center;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height: auto;
+    color:rgb(240,240,240);
+}
+
+#frame_doc .frame_doc_cont .enter_data_field input, select{
+    width:450px;
+    height:30px;
+    margin:5px 0;
+    background-color:rgb(0,18,18);
+    border:0;
+    text-align:center;
+    color:rgb(240,240,240);
+    font-weight:600;
+    font-size:15px;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_doc .frame_doc_cont .enter_data_field div{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:450px;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field div > input, select{
+    width:50%;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field > select{
+    width: 450px;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field table{
+    align-items: center;
+    width:450px;
+    height:30px;
+    border-collapse:collapse;
+    margin-bottom:20px;
+    margin-top:20px;
+    color:rgb(240,240,240);
+    background-color:rgb(53, 53, 53);
+}
+
+#frame_doc .frame_doc_cont .enter_data_field table tr input{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field div button{
+    width:25%;
+    height:25px;
+    background-color:rgb(53, 53, 53);
+    margin-bottom:25px;
+    font-size:15px;
+    font-weight: 700;
+    color:rgb(240,240,240);
+    border:1px solid black;
+}
+
+#frame_doc .frame_doc_cont .enter_data_field div button:active{
+    background-color:rgb(43, 43, 43);
+}
+
+#frame_doc .frame_doc_cont .confirm_but{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:40px;
+    cursor:pointer;
+    margin-top: 5px;
+    background-color:rgb(0,18,18);
+    color:rgba(240,240,240,0.9);
+    font-weight:600;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_doc .frame_doc_cont .confirm_but:active{
+    background-color:rgb(0,8,8);
+}
+/*Форма добавления/обновления в секцию "Приказы о перемещении"*/
+/*checked*/
+#frame_employment_contact{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 600px);
+    width: 1200px;
+    height: auto;
+    background-color: rgb(0,28,28);
+    border-radius: 20px;
+    padding-top:50px;
+    padding-bottom:50px;
+    z-index: 2;
+}
+/*checked*/
+#frame_employment_contact .frame_employment_contact_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1100px;
+    height: 90%;
+}
+/*checked*/
+#frame_employment_contact .frame_employment_contact_cont .frame_title{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(240, 240, 240, 0.9);
+    text-align: center;
+}
+/*checked*/
+#frame_employment_contact .frame_emp_exit{ /*Крестик*/
+    position: absolute;
+    width: 25px;
+    height: 24px;
+    right: 25px;
+    color: white;
+    top: 25px;
+    z-index: 100;
+    cursor: pointer;
+}
+/*checked*/
+#frame_employment_contact .frame_emp_exit span::before{ /*Палочка крестика*/
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 11px;
+    transform-origin: center;
+    transform: rotate(45deg);
+    background-color: white;
+}
+
+#frame_employment_contact .frame_emp_exit span::after{ /*Палочка крестика*/
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 11px;
+    transform-origin: center;
+    transform: rotate(-45deg);
+    background-color: white;
+}
+
+/* Стили для таблицы в форме приказов о перемещении */
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: rgb(240,240,240);
+    background-color: rgb(53, 53, 53);
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(43, 43, 43);
+    border: 1px solid rgb(70, 70, 70);
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td {
+    padding: 8px;
+    border: 1px solid rgb(70, 70, 70);
+}
+
+/* Column widths for the employment contract table */
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(1),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(1) {
+    width: 30px; /* Number column */
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(2),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(2) {
+    width: 25%; /* Employee name column */
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(3),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(3),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(4),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(4),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(5),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(5),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(6),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(6) {
+    width: 15%; /* Position and department columns */
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table th:nth-child(7),
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table td:nth-child(7) {
+    width: 25%; /* Transfer by column */
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table tr input {
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(60, 60, 60);
+    color: rgb(240,240,240);
+    border: none;
+    padding: 0 5px;
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field table tr select {
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(60, 60, 60);
+    color: rgb(240,240,240);
+    border: none;
+    padding: 0 5px;
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div button {
+    width: 40px;
+    height: 30px;
+    background-color: rgb(53, 53, 53);
+    margin: 10px 5px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(240,240,240);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div button:active {
+    background-color: rgb(43, 43, 43);
+}
+
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1000px;
+    height: auto;
+    color: rgb(240,240,240);
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field input,
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field select{
+    width: 900px;
+    height: 30px;
+    margin: 5px 0;
+    background-color: rgb(0,18,18);
+    border: 0;
+    text-align: center;
+    color: rgb(240, 240, 240);
+    font-weight: 600;
+    font-size: 15px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div > input, select{
+    width: 50%;
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field > select{
+    width: 900px;
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div button{
+    width: 25%;
+    height: 25px;
+    background-color: rgb(53, 53, 53);
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(240, 240, 240);
+    border: 1px solid black;
+}
+#frame_employment_contact .frame_employment_contact_cont .enter_data_field div button:active{
+    background-color:rgb(43, 43, 43);
+}
+#frame_employment_contact .frame_employment_contact_cont .confirm_but{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 5px;
+    background-color: rgb(0, 18, 18);
+    color: rgba(240, 240, 240, 0.9);
+    font-weight: 600;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+#frame_employment_contact .frame_employment_contact_cont .confirm_but:active{
+    background-color: rgb(0, 8, 8);
+}
+
+/*Форма добавления/обновления в секцию "Трудовые договоры"*/
+
+
+/*-----------Форма добавление/обновления в секцию "Физические лица"-----------*/
+#frame_indiv{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:200px;
+    left:calc(50% - 300px);
+    width:600px;
+    height:auto;
+    background-color:rgb(0,28,28);
+    border-radius:20px;
+}
+
+#frame_indiv .frame_indiv_exit{ /*Крестик*/
+    position: absolute;
+    width:25px;
+    height:25px;
+    right:25px;
+    color:white;
+    top:25px;
+    z-index:100;
+    cursor:pointer;
+}
+
+#frame_indiv .frame_indiv_exit span::before{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:35px;
+    height:2px;
+    top:0;
+    transform-origin: left;
+    transform: rotate(45deg);
+    background-color:white;
+}
+
+#frame_indiv .frame_indiv_exit span::after{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:33px;
+    height:2px;
+    bottom:0;
+    transform-origin: left;
+    transform: rotate(-45deg);
+    background-color:white;
+}
+
+#frame_indiv .frame_indiv_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:auto;
+}
+
+#frame_indiv .frame_indiv_cont .frame_title{
+    font-size:30px;
+    font-weight: 600;
+    color:rgba(240,240,240,0.9);
+
+}
+
+#frame_indiv .frame_indiv_cont .enter_data_field{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:auto;
+}
+
+#frame_indiv .frame_indiv_cont .enter_data_field input{
+    width:450px;
+    height:30px;
+    margin:5px 0;
+    background-color:rgb(0,18,18);
+    border:0;
+    text-align:center;
+    color:rgb(240,240,240);
+    font-weight:600;
+    font-size:15px;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_indiv .frame_indiv_cont .confirm_but{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:40px;
+    cursor:pointer;
+    margin-top: 5px;
+    background-color:rgb(0,18,18);
+    color:rgba(240,240,240,0.9);
+    font-weight:600;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_indiv .frame_indiv_cont .confirm_but:active{
+    background-color:rgb(0,8,8);
+}
+
+/*-----------Форма добавление/обновления в секцию "Организации"-----------*/
+#frame_org{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:200px;
+    left:calc(50% - 300px);
+    width:600px;
+    height:250px;
+    background-color:rgb(0,28,28);
+    border-radius:20px;
+}
+
+#frame_org .frame_org_exit{ /*Крестик*/
+    position: absolute;
+    width:25px;
+    height:25px;
+    right:25px;
+    color:white;
+    top:25px;
+    z-index:100;
+    cursor:pointer;
+}
+
+#frame_org .frame_org_exit span::before{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:35px;
+    height:2px;
+    top:0;
+    transform-origin: left;
+    transform: rotate(45deg);
+    background-color:white;
+}
+
+#frame_org .frame_org_exit span::after{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:33px;
+    height:2px;
+    bottom:0;
+    transform-origin: left;
+    transform: rotate(-45deg);
+    background-color:white;
+}
+
+#frame_org .frame_org_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:200px;
+}
+
+#frame_org .frame_org_cont .frame_title{
+    font-size:30px;
+    font-weight: 600;
+    color:rgba(240,240,240,0.9);
+
+}
+
+#frame_org .frame_org_cont .enter_data_field{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:100px;
+}
+
+#frame_org .frame_org_cont .enter_data_field input{
+    width:450px;
+    height:30px;
+    margin:5px 0;
+    background-color:rgb(0,18,18);
+    border:0;
+    text-align:center;
+    color:rgb(240,240,240);
+    font-weight:600;
+    font-size:15px;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_org .frame_org_cont .confirm_but{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:40px;
+    cursor:pointer;
+    margin-top: 5px;
+    background-color:rgb(0,18,18);
+    color:rgba(240,240,240,0.9);
+    font-weight:600;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_org .frame_org_cont .confirm_but:active{
+    background-color:rgb(0,8,8);
+}
+
+/*-----------Форма добавление/обновления товаров в секцию "Товары"-----------*/
+#frame_items{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:200px;
+    left:calc(50% - 300px);
+    width:600px;
+    height:200px;
+    background-color:rgb(0,28,28);
+    border-radius:20px;
+}
+
+#frame_items .frame_items_exit{ /*Крестик*/
+    position: absolute;
+    width:25px;
+    height:25px;
+    right:25px;
+    color:white;
+    top:25px;
+    z-index:100;
+    cursor:pointer;
+}
+
+#frame_items .frame_items_exit span::before{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:35px;
+    height:2px;
+    top:0;
+    transform-origin: left;
+    transform: rotate(45deg);
+    background-color:white;
+}
+
+#frame_items .frame_items_exit span::after{ /*Палочка крестика*/
+    content: '';
+    position:absolute;
+    width:33px;
+    height:2px;
+    bottom:0;
+    transform-origin: left;
+    transform: rotate(-45deg);
+    background-color:white;
+}
+
+#frame_items .frame_items_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:200px;
+}
+
+#frame_items .frame_items_cont .frame_title{
+    font-size:30px;
+    font-weight: 600;
+    color:rgba(240,240,240,0.9);
+
+}
+
+#frame_items .frame_items_cont .enter_data_field{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:550px;
+    height:70px;
+}
+
+#frame_items .frame_items_cont .enter_data_field input{
+    width:450px;
+    height:30px;
+    margin:5px 0;
+    background-color:rgb(0,18,18);
+    border:0;
+    text-align:center;
+    color:rgb(240,240,240);
+    font-weight:600;
+    font-size:15px;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_items .frame_items_cont .confirm_but{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:40px;
+    cursor:pointer;
+    margin-top: 5px;
+    background-color:rgb(0,18,18);
+    color:rgba(240,240,240,0.9);
+    font-weight:600;
+    border-top:2px solid rgba(255,255,255,0.1);
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+#frame_items .frame_items_cont .confirm_but:active{
+    background-color:rgb(0,8,8);
+}
+
+    /*--------------------------!!!Форма печати!!!--------------------------*/
+#frame_print{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position:absolute;
+    width:570px;
+    height:800px;
+    font-weight:600;
+    background-color:rgb(255,255,255);
+}
+
+#frame_print input{
+    text-align:center;
+    font-size:12px;
+}
+
+#frame_print .block_hl{
+    display:flex;
+    justify-content: right;
+    width:95%;
+    height:auto;
+}
+
+#frame_print .header_label{
+    text-align:right;
+    margin:0;
+    padding:0;
+    font-size:12px;
+    line-height:12px;
+
+}
+
+/*-----------Level1-----------*/
+#frame_print .level1{
+    display:flex;
+    flex-direction: row;
+    width:95%;
+    height:50px;
+    margin-top:20px;
+}
+
+#frame_print .level1 .home_org{
+    width:60%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#frame_print .level1 .home_org p{
+    font-size:12px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    margin:0;
+}
+
+#frame_print .level1 .home_org input{
+    width:100%;
+    font-size:12px;
+    line-height: 12px;
+    border:0;
+    border-bottom:1px solid black;
+}
+
+#frame_print .level1 .codes{
+    width:40%;
+    height:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#frame_print .level1 .codes .grid{
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-areas:
+            "   cell1 cell2  "
+            "   cell3 cell4  "
+            "   cell5 cell6  ";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+}
+
+#frame_print .level1 .codes .grid>div{
+    font-size:13px;
+}
+
+.grid .cell1,.cell3,.cell5{
+    text-align:right;
+}
+
+.grid .cell2,.cell4,.cell6{
+    text-align:center;
+    border:1px solid black;
+}
+
+/*-----------Title-----------*/
+#frame_print .title_num{
+    width:95%;
+    text-align:center;
+    font-weight:600;
+    font-size:20px;
+    margin-top:10px;
+}
+
+#frame_print .title_num input{
+    font-family: "Times New Roman", serif;
+    width:fit-content;
+    max-width:15%;
+    border:0;
+    border-bottom:1px solid black;
+    font-size:20px;
+    font-weight: 600;
+}
+
+/*-----------Issue_with-----------*/
+#frame_print .issue_with{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width:95%;
+    height:20px;
+    font-size:12px;
+    line-height: 12px;
+    margin-top:10px;
+}
+
+#frame_print .issue_with p{
+    width:50%;
+    margin:0;
+}
+
+#frame_print .issue_with .data_issue{
+    width:50%;
+    display:flex;
+    align-items: flex-end;
+}
+
+#frame_print .issue_with .data_issue input{
+    border:0;
+    border-bottom:1px solid black;
+}
+
+#frame_print .issue_with .data_issue .day{
+    width:10%;
+}
+
+#frame_print .issue_with .data_issue .month{
+    width:60%;
+    margin:0 15px;
+}
+
+#frame_print .issue_with .data_issue .year{
+    width:30%;
+}
+
+/*-----------Issue_for-----------*/
+#frame_print .issue_for{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width:95%;
+    height:20px;
+    font-size:12px;
+    line-height: 12px;
+}
+
+#frame_print .issue_for p{
+    width:50%;
+    margin:0;
+}
+
+#frame_print .issue_for .data_issue{
+    width:50%;
+    display:flex;
+    align-items: flex-end;
+}
+
+#frame_print .issue_for .data_issue input{
+    border:0;
+    border-bottom:1px solid black;
+}
+
+#frame_print .issue_for .data_issue .day{
+    width:10%;
+}
+
+#frame_print .issue_for .data_issue .month{
+    width:60%;
+    margin:0 15px;
+}
+
+#frame_print .issue_for .data_issue .year{
+    width:30%;
+}
+
+/*-----------consumer_org-----------*/
+#frame_print .consumer_org{
+    width:95%;
+    height:20px;
+    font-size:12px;
+    line-height: 12px;
+}
+
+#frame_print .consumer_org input{
+    border:0;
+    border-bottom:1px solid black;
+    width:100%;
+}
+
+#frame_print .consumer_org p{
+    text-align:center;
+    width:100%;
+    margin:0;
+    font-size:10px;
+}
+
+/*-----------payer_org-----------*/
+#frame_print .payer_org{
+    width:95%;
+    height:20px;
+    font-size:12px;
+    line-height: 12px;
+    margin-top:10px;
+}
+
+#frame_print .payer_org input{
+    border:0;
+    border-bottom:1px solid black;
+    width:100%;
+}
+
+#frame_print .payer_org p{
+    text-align:center;
+    width:100%;
+    margin:0;
+    font-size:10px;
+}
+
+    /*-----------individuals_person-----------*/
+#frame_print .individuals_person{
+    display:Flex;
+    flex-direction:row;
+    align-items:flex-end;
+    margin-top:10px;
+    font-size:12px;
+    line-height: 12px;
+    width:95%;
+}
+
+#frame_print .individuals_person .position{
+    display:flex;
+    align-items: flex-start;
+    width:30%;
+    margin:0;
+    height:100%;
+}
+
+#frame_print .individuals_person .position_inputs_block{
+    display:flex;
+    justify-content: space-between;
+    width:70%;
+}
+
+.individuals_person .position_inputs_block .position_input{
+    width:40%;
+}
+
+.individuals_person .position_inputs_block .fio_input{
+    width:55%;
+}
+
+.individuals_person .position_inputs_block input{
+    width:100%;
+    border:0;
+    border-bottom:1px solid black;
+}
+
+.individuals_person .position_inputs_block p{
+    text-align:center;
+    font-size:10px;
+}
+
+/*-----------Passport-----------*/
+#frame_print .passport{
+    display:flex;
+    flex-direction: row;
+    width:95%;
+    font-size:12px;
+    line-height: 12px;
+}
+
+#frame_print .passport>p{
+    width:30%;
+}
+
+#frame_print .passport .data{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+
+#frame_print .passport .data .serial{
+    display:flex;
+    align-items: flex-end;
+    width:50%;
+}
+
+#frame_print .passport .data .serial input{
+    width:100%;
+    margin:0 10px;
+}
+
+#frame_print .passport .data .number{
+    display:flex;
+    align-items: flex-end;
+    width:80%;
+}
+
+#frame_print .passport .data .number input{
+    width:100%;
+    margin:0 0 0 10px;
+}
+
+#frame_print .passport input{
+    border:0;
+    border-bottom:1px solid black;
+}
+
+/*-----------issue_organ-----------*/
+#frame_print .issue_organ{
+    display:flex;
+    align-items: flex-end;
+    margin-top:10px;
+    font-size:12px;
+    line-height: 12px;
+    width:95%;
+}
+
+#frame_print .issue_organ p{
+    width:20%;
+
+}
+
+#frame_print .issue_organ input{
+    width:80%;
+    border-bottom:1px solid black;
+}
+
+/*-----------issue_with2-----------*/
+#frame_print .issue_with2{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width:95%;
+    height:20px;
+    font-size:12px;
+    line-height: 12px;
+    margin-top:10px;
+}
+
+#frame_print .issue_with2 p{
+    width:20%;
+    margin:0;
+}
+
+#frame_print .issue_with2 .data_issue{
+    width:50%;
+    display:flex;
+    align-items: flex-end;
+}
+
+#frame_print .issue_with2 .data_issue input{
+    border:0;
+    border-bottom:1px solid black;
+}
+
+#frame_print .issue_with2 .data_issue .day{
+    width:10%;
+}
+
+#frame_print .issue_with2 .data_issue .month{
+    width:60%;
+    margin:0 15px;
+}
+
+#frame_print .issue_with2 .data_issue .year{
+    width:30%;
+}
+
+/*-----------get_from-----------*/
+#frame_print .get_from{
+    display:flex;
+    width:95%;
+    font-size:12px;
+    line-height: 12px;
+    margin-top:10px;
+}
+
+#frame_print .get_from>p{
+    width:20%;
+}
+
+#frame_print .get_from .input_block{
+    width:80%;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#frame_print .get_from .input_block input{
+    width:100%;
+    border-bottom:1px solid black;
+}
+
+#frame_print .get_from .input_block p{
+    font-size:10px;
+}
+
+/*-----------material_doc-----------*/
+#frame_print .material_doc{
+    display:flex;
+    width:95%;
+    font-size:12px;
+    line-height: 12px;
+    margin-top:10px;
+}
+
+#frame_print .material_doc>p{
+    width:40%;
+}
+
+#frame_print .material_doc .input_block{
+    width:80%;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#frame_print .material_doc .input_block input{
+    width:100%;
+    border-bottom:1px solid black;
+}
+
+#frame_print .material_doc .input_block p{
+    font-size:10px;
+}
+
+/*-----------table-----------*/
+#frame_print table{
+    width:95%;
+    border-collapse: collapse;
+    font-size:12px;
+    margin-top:30px;
+}
+
+#frame_print table th, tr, td{
+    border:1px solid black;
+    text-align:center;
+}
+
+/*--------------------------!!!Настройки печати!!!--------------------------*/
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    #frame_print_emp, #frame_print_emp * {
+        visibility: visible;
+    }
+
+    main {
+        min-height: 0;
+    }
+}
+
+@page{
+    size: A4 landscape;
+    margin: 1cm;
+}
+
+p{
+    margin:0;
+}
+
+input{
+    border:0;
+}
+
+/*--------------------------!!!Стили для формы печати приказа о перемещении!!!--------------------------*/
+
+/* Стили для формы печати приказа о перемещении */
+#frame_print_emp {
+    display: none;
+    position: absolute;
+    height: auto;
+    background-color: white;
+    color: black;
+    padding: 1cm;
+    box-sizing: border-box;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    line-height: 1.4;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    font-weight: normal !important;
+}
+
+/* Заголовок формы печати */
+.print_emp_header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+
+.print_emp_title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.print_emp_number {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.print_emp_date {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Поля ввода в форме печати */
+#frame_print_emp input[type="text"] {
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+    background: transparent !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 14px !important;
+    padding: 2px 5px !important;
+    margin: 0 3px !important;
+    outline: none !important;
+    color: black !important;
+    text-align: left !important;
+}
+
+#frame_print_emp input[readonly] {
+    border-bottom: 1px solid #000 !important;
+    background: transparent !important;
+}
+
+/* Организация */
+.print_emp_organization {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.print_emp_org_label {
+    margin-right: 10px;
+    min-width: 120px;
+}
+
+#print_emp_org {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Ответственное лицо */
+.print_emp_employer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.print_emp_employer_label {
+    margin-right: 10px;
+    min-width: 140px;
+}
+
+#print_emp_employer_fio {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Причина перевода */
+.print_emp_cause {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.print_emp_cause_label {
+    margin-right: 10px;
+    min-width: 140px;
+}
+
+#print_emp_employer_cause {
+    flex: 1;
+    min-width: 400px;
+}
+
+/* Секция таблицы */
+.print_emp_table_section {
+    margin: 30px 0;
+}
+
+.print_emp_table_title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* Таблица печати */
+#print_emp_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+#print_emp_table th,
+#print_emp_table td {
+    border: 2px solid #000;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#print_emp_table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Footer для формы печати трудового договора */
+.print_emp_footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.print_emp_signature_line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.print_emp_signature_label {
+    margin-right: 10px;
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.print_emp_signature_space {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#print_emp_supervisor_name {
+    flex: 1;
+    min-width: 200px;
+    font-size: 14px !important;
+}
+
+.print_emp_date_signature {
+    margin-top: 20px;
+}
+
+.print_emp_date_label {
+    font-size: 14px;
+    font-weight: bold;
+}
